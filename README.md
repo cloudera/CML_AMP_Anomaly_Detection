@@ -30,7 +30,6 @@ As an illustrative example, an autoencoder model is trained on normal samples wh
 │   ├── kdd
 │   ├── kdd_data_gen.py
 ├── cml
-│   ├── cml_servemodel.py
 │   ├── install_deps.py
 ├── metrics
 ├── models
