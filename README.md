@@ -30,8 +30,6 @@ As an illustrative example, an autoencoder model is trained on normal samples wh
 │   ├── kdd
 │   ├── kdd_data_gen.py
 ├── cml
-│   ├── cml_build.py
-│   ├── cml_servemodel.py
 │   ├── install_deps.py
 ├── metrics
 ├── models
@@ -114,7 +112,7 @@ For users interested in deploying this application on Cloudera Machine Learning,
 
 1. **From Prototype Catalog** - Navigate to the Prototype Catalog on a CML workspace, select the "Deep Learning for Anomaly Detection" tile, click "Launch as Project", click "Configure Project"
 2. **As ML Prototype** - In a CML workspace, click "New Project", add a Project Name, select "ML Prototype" as the Initial Setup option, copy in the [repo URL](https://github.com/cloudera/CML_AMP_Anomaly_Detection), click "Create Project", click "Configure Project"
-3. **Manual Setup** - In a CML workspace, click "New Project", add a Project Name, select "Git" as the Initial Setup option. Launch a Python3 Workbench Session with at least 4GB of memory and run the `cml/cml_build.py` script which will create a CML Application and provide a link to the UI. 
+3. **Manual Setup** - In a CML workspace, click "New Project", add a Project Name, select "Git" as the Initial Setup option and provide the URL of this repo. The jobs and applications in the project can be configured manually (reference `.project-metadata.yaml` for the list of jobs and applications) using the CML UI.
 
 Regardless of the launch method, the following steps are performed for you:
 
