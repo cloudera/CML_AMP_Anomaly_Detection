@@ -6,6 +6,16 @@ prototype_version: 1.0
 date: "2020-09-29"
 api_version: 1
 
+runtimes:
+  - editor: Workbench
+    kernel: Python 3.6
+    edition: Standard
+
+engine_images:
+  - image_name: engine
+    tags:
+      - 14
+
 tasks:
   - type: create_job
     name: Install dependencies
