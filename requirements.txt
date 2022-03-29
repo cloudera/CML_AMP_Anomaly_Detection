@@ -1,7 +1,7 @@
-tensorflow
-numpy
-Flask
-matplotlib
-pandas
-scipy
-scikit_learn
+tensorflow==2.8.0
+numpy==1.22.3
+Flask==2.1.0
+matplotlib==3.3.4
+pandas==1.4.1
+scipy==1.8.0
+scikit_learn==1.0.2
