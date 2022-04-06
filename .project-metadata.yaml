@@ -2,19 +2,13 @@ name: Deep Learning for Anomaly Detection
 description: Applying deep learning models on the task of anomaly detection
 author: Cloudera Inc.
 specification_version: 1.0
-prototype_version: 1.0
-date: "2020-09-29"
-api_version: 1
+prototype_version: 2.0
+date: "2022-03-29"
 
 runtimes:
   - editor: Workbench
-    kernel: Python 3.6
+    kernel: Python 3.9
     edition: Standard
-
-engine_images:
-  - image_name: engine
-    tags:
-      - 14
 
 tasks:
   - type: create_job
@@ -27,7 +21,6 @@ tasks:
     short_summary: Create job to install project dependencies.
     environment:
       TASK_TYPE: CREATE/RUN_JOB
-    kernel: python3
 
   - type: run_job
     entity_label: install_deps
@@ -46,7 +39,6 @@ tasks:
     memory: 3
     environment:
       TASK_TYPE: CREATE/RUN_JOB
-    kernel: python3
 
   - type: run_job
     entity_label: train_model
@@ -62,4 +54,3 @@ tasks:
     script: app/backend/app.py
     environment_variables:
       TASK_TYPE: START_APPLICATION
-    kernel: python3
