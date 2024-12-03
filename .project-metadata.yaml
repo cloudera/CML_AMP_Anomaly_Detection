@@ -6,7 +6,7 @@ prototype_version: 2.0
 date: "2022-03-29"
 
 runtimes:
-  - editor: Workbench
+  - editor: PBJ Workbench
     kernel: Python 3.9
     edition: Standard
 
