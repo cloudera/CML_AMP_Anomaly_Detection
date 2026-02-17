@@ -79,7 +79,7 @@ class BiGANModel():
         self.input_shape = input_shape
 
         # optimizer = Adam(0.00001, 0.5)
-        optimizer = Adam(lr=learning_rate)
+        optimizer = Adam(learning_rate=learning_rate)
 
         # Build and compile the discriminator
         self.discriminator = self.build_discriminator()

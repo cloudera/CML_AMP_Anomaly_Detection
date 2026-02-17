@@ -167,7 +167,7 @@ def get_kdd_data(data_dir="data/kdd/", filename="data/kdd/train.csv", keep_cols=
 
     kdd99['labels'] = kdd99['labels'].map(lambda x: str(x)[:-1])
 
-    attack_types = pd.read_csv(os.path.join(data_dir, 'training_attack_types.txt'), sep="\s+", header=None,
+    attack_types = pd.read_csv(os.path.join(data_dir, 'training_attack_types.txt'), sep=r"\s+", header=None,
                                names=['labels', 'attack'], dtype={'labels': str, 'attack': str})
 
     kdd99 = pd.merge(kdd99, attack_types, on=['labels'], how='left')

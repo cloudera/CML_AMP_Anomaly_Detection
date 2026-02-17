@@ -138,7 +138,7 @@ class Seq2SeqModel():
         # define seq2seq model
         self.model = Model([encoder_inputs, decoder_inputs],
                            decoder_outputs, name="seq2seq")
-        optimizer = Adam(lr=learning_rate)
+        optimizer = Adam(learning_rate=learning_rate)
         self.model.compile(optimizer=optimizer, loss=loss)
 
         # define encoder model returning encoder states

@@ -144,7 +144,7 @@ class AutoencoderModel():
         outputs = decoder(encoder(inputs))
         self.model = Model(inputs, outputs, name='ae', )
 
-        optimizer = Adam(lr=learning_rate)
+        optimizer = Adam(learning_rate=learning_rate)
         self.model.compile(optimizer=optimizer, loss="mse")
 
     def train(self, in_train, in_val):

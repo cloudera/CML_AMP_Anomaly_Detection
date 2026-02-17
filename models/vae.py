@@ -161,7 +161,7 @@ class VAEModel():
         vae_loss = K.mean(reconstruction_loss + kl_loss)
         self.model.add_loss(vae_loss)
 
-        optimizer = Adam(lr=learning_rate)
+        optimizer = Adam(learning_rate=learning_rate)
         self.model.compile(optimizer=optimizer)
 
         if model_path:
