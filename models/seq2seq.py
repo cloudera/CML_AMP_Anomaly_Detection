@@ -248,13 +248,14 @@ class Seq2SeqModel():
 
     def save_model(self, model_path="models/savedmodels/seq2seq/"):
         logging.info(">> Saving Bigan model to " + model_path)
-        self.model.save_weights(model_path + "model")
-        self.encoder_model.save_weights(model_path + "encoder")
-        self.decoder_model.save_weights(model_path + "decoder")
+        os.makedirs(model_path, exist_ok=True)
+        self.model.save_weights(model_path + "model.weights.h5")
+        self.encoder_model.save_weights(model_path + "encoder.weights.h5")
+        self.decoder_model.save_weights(model_path + "decoder.weights.h5")
 
     def load_model(self, model_path="models/savedmodels/seq2seq/"):
         if (os.path.exists(model_path)):
             logging.info(">> Loading saved model weights")
-            self.model.load_weights(model_path + "model")
-            self.encoder_model.load_weights(model_path + "encoder")
-            self.decoder_model.load_weights(model_path + "decoder")
+            self.model.load_weights(model_path + "model.weights.h5")
+            self.encoder_model.load_weights(model_path + "encoder.weights.h5")
+            self.decoder_model.load_weights(model_path + "decoder.weights.h5")

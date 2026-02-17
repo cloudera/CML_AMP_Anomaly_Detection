@@ -262,15 +262,16 @@ class BiGANModel():
 
     def save_model(self, model_path="models/savedmodels/bigan/"):
         logging.info(">> Saving Bigan model to " + model_path)
-        self.bigan_generator.save_weights(model_path + "bigan_generator")
-        self.encoder.save_weights(model_path + "encoder")
-        self.discriminator.save_weights(model_path + "discriminator")
-        self.generator.save_weights(model_path + "generator")
+        os.makedirs(model_path, exist_ok=True)
+        self.bigan_generator.save_weights(model_path + "bigan_generator.weights.h5")
+        self.encoder.save_weights(model_path + "encoder.weights.h5")
+        self.discriminator.save_weights(model_path + "discriminator.weights.h5")
+        self.generator.save_weights(model_path + "generator.weights.h5")
 
     def load_model(self, model_path="models/savedmodels/bigan/"):
         if (os.path.exists(model_path)):
             logging.info(">> Loading saved model weights")
-            self.bigan_generator.load_weights(model_path + "bigan_generator")
-            self.encoder.load_weights(model_path + "encoder")
-            self.discriminator.load_weights(model_path + "discriminator")
-            self.generator.load_weights(model_path + "generator")
+            self.bigan_generator.load_weights(model_path + "bigan_generator.weights.h5")
+            self.encoder.load_weights(model_path + "encoder.weights.h5")
+            self.discriminator.load_weights(model_path + "discriminator.weights.h5")
+            self.generator.load_weights(model_path + "generator.weights.h5")
