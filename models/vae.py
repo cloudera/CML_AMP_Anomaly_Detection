@@ -161,7 +161,7 @@ class VAEModel():
         vae_loss = K.mean(reconstruction_loss + kl_loss)
         self.model.add_loss(vae_loss)
 
-        optimizer = Adam(lr=learning_rate)
+        optimizer = Adam(learning_rate=learning_rate)
         self.model.compile(optimizer=optimizer)
 
         if model_path:
@@ -202,9 +202,10 @@ class VAEModel():
 
     def save_model(self, model_path="models/savedmodels/vae/"):
         logging.info(">> Saving VAE model to " + model_path)
-        self.model.save_weights(model_path + "model")
+        os.makedirs(model_path, exist_ok=True)
+        self.model.save_weights(model_path + "model.weights.h5")
 
     def load_model(self, model_path="models/savedmodels/vae/"):
         if (os.path.exists(model_path)):
             logging.info(">> Loading saved model weights")
-            self.model.load_weights(model_path + "model")
+            self.model.load_weights(model_path + "model.weights.h5")

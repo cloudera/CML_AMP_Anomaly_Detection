@@ -144,7 +144,7 @@ class AutoencoderModel():
         outputs = decoder(encoder(inputs))
         self.model = Model(inputs, outputs, name='ae', )
 
-        optimizer = Adam(lr=learning_rate)
+        optimizer = Adam(learning_rate=learning_rate)
         self.model.compile(optimizer=optimizer, loss="mse")
 
     def train(self, in_train, in_val):
@@ -172,9 +172,10 @@ class AutoencoderModel():
 
     def save_model(self, model_path="models/savedmodels/ae/"):
         logging.info(">> Saving AE model to " + model_path)
-        self.model.save_weights(model_path + "model")
+        os.makedirs(model_path, exist_ok=True)
+        self.model.save_weights(model_path + "model.weights.h5")
 
     def load_model(self, model_path="models/savedmodels/ae/"):
         if (os.path.exists(model_path)):
             logging.info(">> Loading saved model weights")
-            self.model.load_weights(model_path + "model")
+            self.model.load_weights(model_path + "model.weights.h5")
